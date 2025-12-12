@@ -19,10 +19,11 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
+      revision: v0.4 # set to desired version
       import: app/west.yml
     - name: zmk-keyboard-re-gret
       remote: rschenk
-      revision: main
+      revision: v0.4 # set to same version as zmk above
   self:
     path: config
 ```
@@ -31,6 +32,10 @@ And then in your `build.yaml` file:
 
 ```yaml
 # build.yaml
-board: ["seeeduino_xiao_ble"]
+board: ["xiao_ble"]
 shield: ["re-gret"]
 ```
+
+## Versioning
+
+ZMK introduced some breaking changes with v0.4. I have updated this module to compile with v0.4 but you should [pin your ZMK version](https://zmk.dev/blog/2025/06/20/pinned-zmk) and pin the version of `zmk-keyboard-re-gret` to match
